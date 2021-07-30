@@ -53,24 +53,26 @@ class QuizzViewController: UIViewController {
        revealAnwswer()
         if sender.currentTitle == rightAnswer {
             revealAnwswer()
+            sender.isHighlighted = true 
             sender.backgroundColor = mainGreen
             sender.layer.opacity = 1.0
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.presentNextQuestion()
                 }
              } else {
             revealAnwswer()
+            sender.isHighlighted = true
+            sender.layer.opacity = 1.0
             sender.backgroundColor = mainRed
             sender.layer.opacity = 1.0
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.presentNextQuestion()
              }
         }
     }
    
-    
-    
-    
     func updateInfo() {
         
         questionLabel.text = currentQuestion?.question
@@ -108,11 +110,11 @@ class QuizzViewController: UIViewController {
         answerButton2.layer.borderWidth = 0.0
         answerButton3.layer.borderWidth = 0.0
         answerButton.backgroundColor = .white
-        answerButton.layer.opacity = 0.3
+        answerButton.layer.opacity = 0.7
         answerButton2.backgroundColor = .white
-        answerButton2.layer.opacity = 0.3
+        answerButton2.layer.opacity = 0.7
         answerButton3.backgroundColor = .white
-        answerButton3.layer.opacity = 0.3
+        answerButton3.layer.opacity = 0.7
         answerButton.isEnabled = false
         answerButton2.isEnabled = false
         answerButton3.isEnabled = false

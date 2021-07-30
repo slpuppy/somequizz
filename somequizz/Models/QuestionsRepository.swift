@@ -16,7 +16,7 @@ class QuestionsRepository {
                      Question(question: "When did time begin?", questionNum: "Second question", answer1: "before it's existence", answer2: "when clocks were invented", answer3: "I don't know", questionImage: "infinitecircle", rightAnswer: "before it's existence"),
                      Question(question: "How the universe came to exist??", questionNum: "Third question", answer1: "before it's existence", answer2: "when clocks were invented", answer3: "I don't know", questionImage: "infinitecircle", rightAnswer: "before it's existence"),
                      Question(question: "Who are you?", questionNum: "Fourth question", answer1: "before it's existence", answer2: "when clocks were invented", answer3: "I don't know", questionImage: "infinitecircle", rightAnswer: "before it's existence"),
-                     Question(question: "Where does black mustard comes from?", questionNum: "Fifth question", answer1: "The mustard crop", answer2: "sea of hapiness", answer3: "sausage waste", questionImage: "infinite circle", rightAnswer: "The mustard crop")]
+                     Question(question: "Where does black mustard comes from?", questionNum: "Fifth question", answer1: "The mustard crop", answer2: "sea of hapiness", answer3: "sausage waste", questionImage: "infinitecircle", rightAnswer: "The mustard crop")]
 
    
     fileprivate init() {}

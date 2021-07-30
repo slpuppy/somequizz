@@ -19,7 +19,7 @@ class Question {
     let answer3: String
     let questionImage: String
     
-    let rightAnswer: String
+    var rightAnswer: String
     
     internal init(question: String, questionNum: String, answer1: String, answer2: String, answer3: String, questionImage: String, rightAnswer: String) {
         self.question = question

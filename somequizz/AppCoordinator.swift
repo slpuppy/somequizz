@@ -12,7 +12,7 @@ protocol AppCoordinatorDelegate: AnyObject {
     
     func presentStart()
     
-    func presentQuizz(item: Question)
+    func presentQuizz(item: QuizzStatus)
     
 }
 
@@ -54,7 +54,7 @@ class AppCoordinator {
         return vc
     }
     
-    func createQuizzVC(item: Question) -> QuizzViewController {
+    func createQuizzVC(item: QuizzStatus) -> QuizzViewController {
         
         let storyboard = UIStoryboard(name: "Quizz", bundle: nil)
         guard let vc = storyboard.instantiateInitialViewController() as? QuizzViewController else {
@@ -62,7 +62,7 @@ class AppCoordinator {
             fatalError()
         }
         
-        vc.questionItem = item
+        vc.quizzStatus = item
         return vc
         
         
@@ -75,7 +75,8 @@ class AppCoordinator {
 extension AppCoordinator: AppCoordinatorDelegate {
     
     
-    func presentQuizz(item: Question) {
+    
+    func presentQuizz(item: QuizzStatus) {
         
         let quizzVC = createQuizzVC(item: item)
         quizzVC.modalPresentationStyle = .fullScreen
@@ -83,9 +84,11 @@ extension AppCoordinator: AppCoordinatorDelegate {
         state = .quizz
         
         quizzVC.coordinator = self
-        
     }
     
+    
+    
+ 
     
     
     func presentStart() {

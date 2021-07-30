@@ -26,6 +26,9 @@
                                     <color key="titleColor" name="mainColor"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="42x-Oe-oVf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zL8-08-B2B">
                                 <rect key="frame" x="20" y="632" width="374" height="60"/>
@@ -36,6 +39,9 @@
                                 <state key="normal" title="Answer 02">
                                     <color key="titleColor" name="mainColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dDr-p2-yA0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWe-SB-hGy">
                                 <rect key="frame" x="20" y="562" width="374" height="60"/>
@@ -47,6 +53,9 @@
                                 <state key="normal" title="Answer 01">
                                     <color key="titleColor" name="mainColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2Sk-wR-3Sc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkq-WR-9JE">
                                 <rect key="frame" x="30" y="128.5" width="98.5" height="19.5"/>
@@ -55,11 +64,8 @@
                                 <color key="highlightedColor" name="mainColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhW-2V-u1I">
-                                <rect key="frame" x="30" y="148" width="354" height="80"/>
+                                <rect key="frame" x="30" y="150" width="354" height="56"/>
                                 <color key="tintColor" name="mainColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="XQY-Ic-21L"/>
-                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Why there is something instead of nothing?">
                                         <attributes>
@@ -72,17 +78,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="infinitecircle" translatesAutoresizingMaskIntoConstraints="NO" id="oev-DD-ymn">
-                                <rect key="frame" x="50" y="308" width="314" height="174"/>
+                                <rect key="frame" x="50" y="286" width="314" height="196"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdT-tl-jrb">
-                                <rect key="frame" x="30" y="812" width="354" height="30"/>
-                                <state key="normal" title="Skip question">
-                                    <color key="titleColor" name="mainColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lUh-UA-dqu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="mainColorInvert"/>
@@ -90,17 +87,14 @@
                             <constraint firstItem="pkq-WR-9JE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="08r-bf-0OZ"/>
                             <constraint firstItem="zL8-08-B2B" firstAttribute="top" secondItem="OWe-SB-hGy" secondAttribute="bottom" constant="10" id="0g1-Bl-Rm0"/>
                             <constraint firstItem="zL8-08-B2B" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="5eb-e0-TW4"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cdT-tl-jrb" secondAttribute="bottom" constant="20" id="7Fl-yh-0DM"/>
                             <constraint firstItem="hhW-2V-u1I" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="DKL-Wi-YJF"/>
                             <constraint firstItem="OWe-SB-hGy" firstAttribute="top" secondItem="oev-DD-ymn" secondAttribute="bottom" constant="80" id="DR8-jQ-Ls3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oev-DD-ymn" secondAttribute="trailing" constant="50" id="K7b-wM-ISu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OWe-SB-hGy" secondAttribute="trailing" constant="20" id="VLb-WK-ZWe"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cdT-tl-jrb" secondAttribute="trailing" constant="30" id="W57-Ho-TDq"/>
-                            <constraint firstItem="cdT-tl-jrb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="ZF2-uH-iUF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zL8-08-B2B" secondAttribute="trailing" constant="20" id="ae8-6T-GVM"/>
                             <constraint firstItem="pkq-WR-9JE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="84.5" id="ceY-rD-D0o"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hhW-2V-u1I" secondAttribute="trailing" constant="30" id="cf8-I7-T7l"/>
-                            <constraint firstItem="hhW-2V-u1I" firstAttribute="top" secondItem="pkq-WR-9JE" secondAttribute="bottom" id="dvf-1m-yc2"/>
+                            <constraint firstItem="hhW-2V-u1I" firstAttribute="top" secondItem="pkq-WR-9JE" secondAttribute="bottom" constant="2" id="dvf-1m-yc2"/>
                             <constraint firstItem="ti7-vt-Jek" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="g9b-ss-S1H"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ti7-vt-Jek" secondAttribute="trailing" constant="20" id="gEG-or-FYh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ti7-vt-Jek" secondAttribute="bottom" constant="100" id="iX0-Yt-Pza"/>
@@ -131,7 +125,7 @@
             <color red="0.15299999713897705" green="0.15700000524520874" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainColorInvert">
-            <color red="0.81599998474121094" green="0.82400000095367432" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81568627450980391" green="0.82352941176470584" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

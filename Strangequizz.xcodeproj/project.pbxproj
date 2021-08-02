@@ -28,7 +28,7 @@
 		7560EA8126B386D800F3C0CE /* QuizzStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzStatus.swift; sourceTree = "<group>"; };
 		7560EA8326B7702A00F3C0CE /* End.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = End.storyboard; sourceTree = "<group>"; };
 		7560EA8726B775B300F3C0CE /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
-		758F011826B1F97300349B32 /* somequizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = somequizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		758F011826B1F97300349B32 /* Strangequizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strangequizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758F011B26B1F97300349B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		758F011D26B1F97300349B32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		758F011F26B1F97300349B32 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		758F011926B1F97300349B32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				758F011826B1F97300349B32 /* somequizz.app */,
+				758F011826B1F97300349B32 /* Strangequizz.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,9 +118,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		758F011726B1F97300349B32 /* somequizz */ = {
+		758F011726B1F97300349B32 /* Strangequizz */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 758F012C26B1F97400349B32 /* Build configuration list for PBXNativeTarget "somequizz" */;
+			buildConfigurationList = 758F012C26B1F97400349B32 /* Build configuration list for PBXNativeTarget "Strangequizz" */;
 			buildPhases = (
 				758F011426B1F97300349B32 /* Sources */,
 				758F011526B1F97300349B32 /* Frameworks */,
@@ -130,9 +130,9 @@
 			);
 			dependencies = (
 			);
-			name = somequizz;
+			name = Strangequizz;
 			productName = somequizz;
-			productReference = 758F011826B1F97300349B32 /* somequizz.app */;
+			productReference = 758F011826B1F97300349B32 /* Strangequizz.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -149,7 +149,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 758F011326B1F97300349B32 /* Build configuration list for PBXProject "somequizz" */;
+			buildConfigurationList = 758F011326B1F97300349B32 /* Build configuration list for PBXProject "Strangequizz" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -162,7 +162,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				758F011726B1F97300349B32 /* somequizz */,
+				758F011726B1F97300349B32 /* Strangequizz */,
 			);
 		};
 /* End PBXProject section */
@@ -343,13 +343,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "1.0 ";
 				DEVELOPMENT_TEAM = C7K95G5W2H;
 				INFOPLIST_FILE = somequizz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pupper.somequizz.somequizz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pupper.Strangequizz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -362,13 +363,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "1.0 ";
 				DEVELOPMENT_TEAM = C7K95G5W2H;
 				INFOPLIST_FILE = somequizz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pupper.somequizz.somequizz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pupper.Strangequizz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -378,7 +380,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		758F011326B1F97300349B32 /* Build configuration list for PBXProject "somequizz" */ = {
+		758F011326B1F97300349B32 /* Build configuration list for PBXProject "Strangequizz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				758F012A26B1F97400349B32 /* Debug */,
@@ -387,7 +389,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		758F012C26B1F97400349B32 /* Build configuration list for PBXNativeTarget "somequizz" */ = {
+		758F012C26B1F97400349B32 /* Build configuration list for PBXNativeTarget "Strangequizz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				758F012D26B1F97400349B32 /* Debug */,

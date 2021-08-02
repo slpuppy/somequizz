@@ -71,10 +71,11 @@ func presentNextQuestion() {
         revealAnwswer()
         if sender.currentTitle == rightAnswer {
             revealAnwswer()
-            quizzStatus?.rightCount += 1
-            sender.isHighlighted = true 
-            sender.backgroundColor = mainGreen
             sender.layer.opacity = 1.0
+            quizzStatus?.rightCount += 1
+            sender.titleLabel?.font = .boldSystemFont(ofSize: 20)
+            sender.backgroundColor = mainGreen
+            
             
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -83,10 +84,11 @@ func presentNextQuestion() {
         } else {
             revealAnwswer()
             quizzStatus?.wrongCount += 1
-            sender.isHighlighted = true
+            
             sender.layer.opacity = 1.0
             sender.backgroundColor = mainRed
             sender.layer.opacity = 1.0
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.presentNextQuestion()
             }
@@ -138,6 +140,7 @@ func presentNextQuestion() {
         answerButton.isEnabled = false
         answerButton2.isEnabled = false
         answerButton3.isEnabled = false
+        
         
         
     }

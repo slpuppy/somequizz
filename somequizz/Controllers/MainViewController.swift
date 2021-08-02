@@ -19,14 +19,20 @@ class MainViewController: UIViewController {
     @IBOutlet var background: UIView!
     @IBOutlet weak var launchImage: UIImageView!
     @IBOutlet weak var startButton: UIButton!
+    var alreadyPlayed: Bool = false
     
     
     
     
     override func viewDidLoad() {
+        print(alreadyPlayed)
         super.viewDidLoad()
         bg.backgroundColor = mainColorInvert
         startButton.layer.cornerRadius = 30
+        launchImage.setAnchorPoint(CGPoint(x: 0.5, y: 0))
+        launchImage.transform = CGAffineTransform(rotationAngle: -0.30)
+        launchImage.pendum()
+        
         
    
         
@@ -37,6 +43,7 @@ class MainViewController: UIViewController {
 
     @IBAction func didPress(_ sender: Any) {
     
+        alreadyPlayed = true
         let quizzStatus = QuizzStatus(questions: QuestionsRepository.shared.questions)
         
         coordinator?.presentQuizz(item: quizzStatus)
@@ -44,4 +51,6 @@ class MainViewController: UIViewController {
     }
     
 }
+
+
 

@@ -14,6 +14,8 @@ protocol AppCoordinatorDelegate: AnyObject {
     
     func presentQuizz(item: QuizzStatus)
     
+    func presentEnd(item: QuizzStatus)
+    
 }
 
 
@@ -68,11 +70,35 @@ class AppCoordinator {
         
     }
     
+    func createEndVC(item: QuizzStatus) -> EndViewController {
+        let storyboard = UIStoryboard(name: "End", bundle: nil)
+        guard let vc = storyboard.instantiateInitialViewController() as? EndViewController else {
+            
+            fatalError()
+        }
+        
+        vc.quizzStatus = item
+        return vc
+       }
+        
+    }
     
     
-}
+    
+
 
 extension AppCoordinator: AppCoordinatorDelegate {
+    
+    
+    func presentEnd(item: QuizzStatus) {
+        let endVC = createEndVC(item: item)
+        endVC.modalPresentationStyle = .fullScreen
+        navVC?.pushViewController(endVC, animated: true)
+        state = .end
+        
+        endVC.coordinator = self
+    }
+    
     
     
     
@@ -111,6 +137,7 @@ enum AppCoordinatorState {
     
     case start
     case quizz
+    case end
     
     
     

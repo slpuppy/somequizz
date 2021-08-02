@@ -73,7 +73,7 @@ func presentNextQuestion() {
             revealAnwswer()
             sender.layer.opacity = 1.0
             quizzStatus?.rightCount += 1
-            sender.titleLabel?.font = .boldSystemFont(ofSize: 20)
+            sender.titleLabel?.font = .boldSystemFont(ofSize: 18)
             sender.backgroundColor = mainGreen
             
             

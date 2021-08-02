@@ -6,10 +6,6 @@
 //
 
 import Foundation
-
-
-
-
 class Question {
     
     let question: String

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class QuestionsRepository {
    
     static let shared = QuestionsRepository()

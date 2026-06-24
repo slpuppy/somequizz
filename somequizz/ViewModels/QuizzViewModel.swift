@@ -6,20 +6,20 @@
 //
 
 import Foundation
-import Combine
 
 class QuizViewModel: ObservableObject {
 
+    @Published var questions: [Question] = []
     @Published var currentQuestionIndex: Int = 0
     @Published var rightCount: Int = 0
     @Published var wrongCount: Int = 0
+    @Published var isLoading: Bool = true
 
-    private(set) var questions: [Question]
-    private let repository: QuestionsRepositoryProtocol
+    private let service: QuizServiceProtocol
 
-    init(repository: QuestionsRepositoryProtocol = LocalQuestionsRepository.shared) {
-        self.repository = repository
-        self.questions = repository.loadQuestions()
+    init(service: QuizServiceProtocol = FirestoreQuizService()) {
+        self.service = service
+        Task { await loadQuestions() }
     }
 
     var totalQuestions: Int { questions.count }
@@ -29,11 +29,7 @@ class QuizViewModel: ObservableObject {
     @discardableResult
     func submitAnswer(_ option: String) -> Bool {
         let correct = option == currentQuestion.rightAnswer
-        if correct {
-            rightCount += 1
-        } else {
-            wrongCount += 1
-        }
+        if correct { rightCount += 1 } else { wrongCount += 1 }
         return correct
     }
 
@@ -46,6 +42,20 @@ class QuizViewModel: ObservableObject {
         currentQuestionIndex = 0
         rightCount = 0
         wrongCount = 0
-        questions = repository.loadQuestions()
+        isLoading = true
+        Task { await loadQuestions() }
+    }
+
+    // MARK: - Private
+
+    @MainActor
+    private func loadQuestions() async {
+        do {
+            questions = try await service.fetchQuestions()
+        } catch {
+            print("[QuizViewModel] Firestore fetch failed: \(error)")
+            questions = LocalQuestionsRepository.shared.loadQuestions()
+        }
+        isLoading = false
     }
 }

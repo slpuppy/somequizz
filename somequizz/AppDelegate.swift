@@ -1,36 +1,21 @@
 //
 //  AppDelegate.swift
-//  somequizz
+//  Strangequizz
 //
-//  Created by Gabriel Puppi on 28/07/21.
+//  Created by Gabriel Puppi on 24/06/26.
 //
 
-import UIKit
+import SwiftUI
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+struct StrangequizzApp: App {
+    // When adding Firebase in the future, uncomment the line below
+    // and implement FirebaseApp.configure() inside AppDelegate:
+    // @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
 }
-

@@ -21,6 +21,8 @@
 		75C7157C2FEB9040006A9E17 /* QuizzImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7157B2FEB903C006A9E17 /* QuizzImageView.swift */; };
 		75C7157F2FEB907B006A9E17 /* AnswerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7157E2FEB9079006A9E17 /* AnswerState.swift */; };
 		75C715812FEB92E7006A9E17 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715802FEB92E7006A9E17 /* Colors.swift */; };
+		75C715842FEB98FD006A9E17 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715822FEB98FD006A9E17 /* String+Localized.swift */; };
+		75C715892FEB9921006A9E17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75C715872FEB9921006A9E17 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		75C7157B2FEB903C006A9E17 /* QuizzImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzImageView.swift; sourceTree = "<group>"; };
 		75C7157E2FEB9079006A9E17 /* AnswerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerState.swift; sourceTree = "<group>"; };
 		75C715802FEB92E7006A9E17 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		75C715822FEB98FD006A9E17 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		75C715862FEB9921006A9E17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 		758F011A26B1F97300349B32 /* somequizz */ = {
 			isa = PBXGroup;
 			children = (
+				75C715852FEB9908006A9E17 /* Utils */,
 				758F011B26B1F97300349B32 /* AppDelegate.swift */,
 				758F013826B2042A00349B32 /* ContentView.swift */,
 				75C715772FEB9007006A9E17 /* DesignSystem */,
@@ -139,6 +144,31 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		75C715832FEB98FD006A9E17 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				75C715822FEB98FD006A9E17 /* String+Localized.swift */,
+				75C715882FEB9921006A9E17 /* en.lproj */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		75C715852FEB9908006A9E17 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				75C715832FEB98FD006A9E17 /* Localization */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		75C715882FEB9921006A9E17 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				75C715872FEB9921006A9E17 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				758F012526B1F97400349B32 /* Assets.xcassets in Resources */,
+				75C715892FEB9921006A9E17 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +243,7 @@
 				7560EA8026B3858A00F3C0CE /* QuestionsRepository.swift in Sources */,
 				758F013926B2042A00349B32 /* ContentView.swift in Sources */,
 				75C7157C2FEB9040006A9E17 /* QuizzImageView.swift in Sources */,
+				75C715842FEB98FD006A9E17 /* String+Localized.swift in Sources */,
 				758F012026B1F97300349B32 /* MainView.swift in Sources */,
 				7560EA8226B386D800F3C0CE /* QuizzViewModel.swift in Sources */,
 				75C7157A2FEB9022006A9E17 /* AnswerButton.swift in Sources */,
@@ -225,6 +257,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		75C715872FEB9921006A9E17 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75C715862FEB9921006A9E17 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		758F012A26B1F97400349B32 /* Debug */ = {

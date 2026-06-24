@@ -53,7 +53,7 @@ struct EndView: View {
                 Color.clear.frame(height: 100)
 
                 // Score
-                Text("Scored \(viewModel.rightCount)/\(viewModel.totalQuestions) stranger...")
+                Text(String(format: localizeString("end.score_format"), viewModel.rightCount, viewModel.totalQuestions))
                     .font(.system(size: 30, weight: .semibold))
                     .foregroundColor(.mainColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -117,39 +117,39 @@ struct EndView: View {
         switch viewModel.rightCount {
         case 9:
             return ResultInfo(
-                firstLine: "You tried so hard and got so far",
-                secondLine: "and in the end...",
-                scoreSub: "and YOU LOST!, but fortunatelly...",
-                resultText: "you found a secret:",
-                lastText: "It was an inside job and this quizz is strange so...",
-                buttonTitle: "Try again and win, you're close"
+                firstLine:   localizeString("end.first_line"),
+                secondLine:  localizeString("end.secret.second_line"),
+                scoreSub:    localizeString("end.secret.score_sub"),
+                resultText:  localizeString("end.secret.result"),
+                lastText:    localizeString("end.secret.last_text"),
+                buttonTitle: localizeString("end.secret.button")
             )
         case 10:
             return ResultInfo(
-                firstLine: "You tried so hard and got so far",
-                secondLine: "and in the end...",
-                scoreSub: "and because this quizz is strange, fortunatelly...",
-                resultText: "You won!",
-                lastText: "but you made one mistake...",
-                buttonTitle: "Try to make none"
+                firstLine:   localizeString("end.first_line"),
+                secondLine:  localizeString("end.won.second_line"),
+                scoreSub:    localizeString("end.won.score_sub"),
+                resultText:  localizeString("end.won.result"),
+                lastText:    localizeString("end.won.last_text"),
+                buttonTitle: localizeString("end.won.button")
             )
         case 11:
             return ResultInfo(
-                firstLine: "You tried so hard and got so far",
-                secondLine: "and in the end you completely nailed it!",
-                scoreSub: "and despite being a strange quizz you were",
-                resultText: "Flawless",
-                lastText: "this quizz isn't strange for you anymore",
-                buttonTitle: "Replay"
+                firstLine:   localizeString("end.first_line"),
+                secondLine:  localizeString("end.flawless.second_line"),
+                scoreSub:    localizeString("end.flawless.score_sub"),
+                resultText:  localizeString("end.flawless.result"),
+                lastText:    localizeString("end.flawless.last_text"),
+                buttonTitle: localizeString("end.flawless.button")
             )
         default: // 0–8
             return ResultInfo(
-                firstLine: "You tried so hard and got so far",
-                secondLine: "but in the end...",
-                scoreSub: "and because this quizz is strange, unfortunatelly...",
-                resultText: "You lost...",
-                lastText: "but you can still...",
-                buttonTitle: "Try again"
+                firstLine:   localizeString("end.first_line"),
+                secondLine:  localizeString("end.lost.second_line"),
+                scoreSub:    localizeString("end.lost.score_sub"),
+                resultText:  localizeString("end.lost.result"),
+                lastText:    localizeString("end.lost.last_text"),
+                buttonTitle: localizeString("end.lost.button")
             )
         }
     }

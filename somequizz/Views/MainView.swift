@@ -35,12 +35,12 @@ struct MainView: View {
                     }
 
 
-                Text("The Strange quizz")
+                Text(localizeString("main.title"))
                     .font(.system(size: 28, weight: .bold))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 20)
 
-                Text("a quizz about stuff")
+                Text(localizeString("main.subtitle"))
                     .font(.system(size: 20, weight: .light))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 20)
@@ -51,7 +51,7 @@ struct MainView: View {
                 Button {
                     onStart()
                 } label: {
-                    Text("Start the quizz")
+                    Text(localizeString("main.start_button"))
                         .font(.system(size: 18))
                         .frame(maxWidth: .infinity)
                         .frame(height: 60)

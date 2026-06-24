@@ -1,0 +1,36 @@
+/* Main Screen */
+"main.title"        = "The Strange quizz";
+"main.subtitle"     = "a quizz about stuff";
+"main.start_button" = "Start the quizz";
+
+/* End Screen — shared */
+"end.first_line"    = "You tried so hard and got so far";
+"end.score_format"  = "Scored %d/%d stranger...";
+
+/* End Screen — lost (0–8) */
+"end.lost.second_line" = "but in the end...";
+"end.lost.score_sub"   = "and because this quizz is strange, unfortunatelly...";
+"end.lost.result"      = "You lost...";
+"end.lost.last_text"   = "but you can still...";
+"end.lost.button"      = "Try again";
+
+/* End Screen — secret (9) */
+"end.secret.second_line" = "and in the end...";
+"end.secret.score_sub"   = "and YOU LOST!, but fortunatelly...";
+"end.secret.result"      = "you found a secret:";
+"end.secret.last_text"   = "It was an inside job and this quizz is strange so...";
+"end.secret.button"      = "Try again and win, you're close";
+
+/* End Screen — won (10) */
+"end.won.second_line" = "and in the end...";
+"end.won.score_sub"   = "and because this quizz is strange, fortunatelly...";
+"end.won.result"      = "You won!";
+"end.won.last_text"   = "but you made one mistake...";
+"end.won.button"      = "Try to make none";
+
+/* End Screen — flawless (11) */
+"end.flawless.second_line" = "and in the end you completely nailed it!";
+"end.flawless.score_sub"   = "and despite being a strange quizz you were";
+"end.flawless.result"      = "Flawless";
+"end.flawless.last_text"   = "this quizz isn't strange for you anymore";
+"end.flawless.button"      = "Replay";

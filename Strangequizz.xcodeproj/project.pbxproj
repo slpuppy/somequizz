@@ -36,6 +36,8 @@
 		75C715A62FEC64BB006A9E17 /* EndViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715A42FEC64BB006A9E17 /* EndViewModel.swift */; };
 		75C715A72FEC64BB006A9E17 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715A52FEC64BB006A9E17 /* MainViewModel.swift */; };
 		75C715A92FEC6FB4006A9E17 /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715A82FEC6FB4006A9E17 /* QuizService.swift */; };
+		75C715AB2FECB9A7006A9E17 /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715AA2FECB9A7006A9E17 /* AppSettingsService.swift */; };
+		75C715AE2FECBA77006A9E17 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715AC2FECBA77006A9E17 /* LocalStorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		75C715A42FEC64BB006A9E17 /* EndViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewModel.swift; sourceTree = "<group>"; };
 		75C715A52FEC64BB006A9E17 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		75C715A82FEC6FB4006A9E17 /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
+		75C715AA2FECB9A7006A9E17 /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
+		75C715AC2FECBA77006A9E17 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,7 @@
 		75C715852FEB9908006A9E17 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				75C715AD2FECBA77006A9E17 /* Managers */,
 				75C715A12FEC576A006A9E17 /* Services */,
 				75C715832FEB98FD006A9E17 /* Localization */,
 			);
@@ -203,11 +208,20 @@
 		75C715A12FEC576A006A9E17 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				75C715AA2FECB9A7006A9E17 /* AppSettingsService.swift */,
 				75C715A82FEC6FB4006A9E17 /* QuizService.swift */,
 				75C7159D2FEC5763006A9E17 /* EndContentService.swift */,
 				75C7159E2FEC5763006A9E17 /* MainContentService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		75C715AD2FECBA77006A9E17 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				75C715AC2FECBA77006A9E17 /* LocalStorageManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +300,7 @@
 			files = (
 				7560EA8826B775B300F3C0CE /* EndView.swift in Sources */,
 				7560EA8026B3858A00F3C0CE /* QuestionsRepository.swift in Sources */,
+				75C715AB2FECB9A7006A9E17 /* AppSettingsService.swift in Sources */,
 				758F013926B2042A00349B32 /* ContentView.swift in Sources */,
 				75C7157C2FEB9040006A9E17 /* QuizzImageView.swift in Sources */,
 				75C7159F2FEC5763006A9E17 /* EndContentService.swift in Sources */,
@@ -296,6 +311,7 @@
 				758F012026B1F97300349B32 /* MainView.swift in Sources */,
 				75C715A92FEC6FB4006A9E17 /* QuizService.swift in Sources */,
 				7560EA8226B386D800F3C0CE /* QuizzViewModel.swift in Sources */,
+				75C715AE2FECBA77006A9E17 /* LocalStorageManager.swift in Sources */,
 				75C7157A2FEB9022006A9E17 /* AnswerButton.swift in Sources */,
 				758F011C26B1F97300349B32 /* AppDelegate.swift in Sources */,
 				75C715A32FEC5785006A9E17 /* ScreenContent.swift in Sources */,

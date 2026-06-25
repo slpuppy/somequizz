@@ -15,10 +15,11 @@ class FirestoreQuizService: QuizServiceProtocol {
 
     func fetchQuestions() async throws -> [Question] {
         let db = Firestore.firestore()
-        let today = todayKey()
 
-        if let questions = try? await fetch(document: today, from: db) {
-            return questions
+        if LocalStorageManager.bool(for: .useDynamicQuestions) {
+            if let questions = try? await fetch(document: todayKey(), from: db) {
+                return questions
+            }
         }
 
         return try await fetch(document: "default", from: db)

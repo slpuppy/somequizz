@@ -13,6 +13,7 @@ struct StrangequizzApp: App {
 
     init() {
         FirebaseApp.configure()
+        Task { await FirestoreAppSettingsService().fetchSettingsAndCache() }
     }
 
     var body: some Scene {

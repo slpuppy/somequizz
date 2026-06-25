@@ -17,7 +17,6 @@ class FirestoreQuizService: QuizServiceProtocol {
         let db = Firestore.firestore()
         let isDynamic = LocalStorageManager.bool(for: .useDynamicQuestions)
         let key = todayKey()
-        print("[QuizService] useDynamicQuestions=\(isDynamic), todayKey=\(key)")
 
         if isDynamic {
             do {

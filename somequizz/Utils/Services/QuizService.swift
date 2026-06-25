@@ -15,12 +15,21 @@ class FirestoreQuizService: QuizServiceProtocol {
 
     func fetchQuestions() async throws -> [Question] {
         let db = Firestore.firestore()
-        let today = todayKey()
+        let isDynamic = LocalStorageManager.bool(for: .useDynamicQuestions)
+        let key = todayKey()
+        print("[QuizService] useDynamicQuestions=\(isDynamic), todayKey=\(key)")
 
-        if let questions = try? await fetch(document: today, from: db) {
-            return questions
+        if isDynamic {
+            do {
+                let questions = try await fetch(document: key, from: db)
+                print("[QuizService] Loaded \(questions.count) dynamic questions for \(key)")
+                return questions
+            } catch {
+                print("[QuizService] Dynamic fetch failed: \(error)")
+            }
         }
 
+        print("[QuizService] Falling back to default")
         return try await fetch(document: "default", from: db)
     }
 
@@ -33,6 +42,7 @@ class FirestoreQuizService: QuizServiceProtocol {
     private func todayKey() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(identifier: "UTC")
         return formatter.string(from: Date())
     }
 }

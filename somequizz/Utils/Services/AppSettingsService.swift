@@ -7,10 +7,6 @@
 
 import FirebaseFirestore
 
-private enum UserDefaultsKey {
-    static let useDynamicQuestions = "useDynamicQuestions"
-}
-
 protocol AppSettingsServiceProtocol {
     func fetchSettingsAndCache() async
 }
@@ -26,24 +22,20 @@ class FirestoreAppSettingsService: AppSettingsServiceProtocol {
 
             guard let data = snapshot.data(),
                   let flag = data["useDynamicQuestions"] as? Bool else {
-                setDefault()
+                print("[AppSettingsService] Missing or invalid useDynamicQuestions field, data=\(String(describing: snapshot.data()))")
+                setDefaults()
                 return
             }
 
-            UserDefaults.standard.set(flag, forKey: UserDefaultsKey.useDynamicQuestions)
+            print("[AppSettingsService] useDynamicQuestions=\(flag)")
+            LocalStorageManager.set(flag, for: .useDynamicQuestions)
         } catch {
             print("[AppSettingsService] Fetch failed, defaulting to false: \(error)")
-            setDefault()
+            setDefaults()
         }
     }
 
-    private func setDefault() {
-        UserDefaults.standard.set(false, forKey: UserDefaultsKey.useDynamicQuestions)
-    }
-}
-
-extension UserDefaults {
-    var useDynamicQuestions: Bool {
-        bool(forKey: UserDefaultsKey.useDynamicQuestions)
+    private func setDefaults() {
+        LocalStorageManager.set(false, for: .useDynamicQuestions)
     }
 }

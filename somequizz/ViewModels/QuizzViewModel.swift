@@ -50,6 +50,7 @@ class QuizViewModel: ObservableObject {
 
     @MainActor
     private func loadQuestions() async {
+        await FirestoreAppSettingsService().fetchSettingsAndCache()
         do {
             questions = try await service.fetchQuestions()
         } catch {

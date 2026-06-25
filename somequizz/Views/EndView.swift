@@ -23,10 +23,10 @@ struct EndView: View {
 
                 // Header lines
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(viewModel.firstLine)
+                    Text(viewModel.screenData?.firstLine ?? "")
                         .font(.system(size: 21, weight: .bold))
                         .foregroundColor(.mainColor)
-                    Text(viewModel.secondLine)
+                    Text(viewModel.screenData?.secondLine ?? "")
                         .font(.system(size: 15))
                         .foregroundColor(.mainColor)
                 }
@@ -53,7 +53,7 @@ struct EndView: View {
                 Color.clear.frame(height: 100)
 
                 // Score
-                Text(viewModel.scoreText)
+                Text(viewModel.screenData?.scoreText ?? "")
                     .font(.system(size: 30, weight: .semibold))
                     .foregroundColor(.mainColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -61,14 +61,14 @@ struct EndView: View {
 
                 Color.clear.frame(height: 10)
 
-                Text(viewModel.scoreSub)
+                Text(viewModel.screenData?.scoreSub ?? "")
                     .font(.system(size: 13, weight: .light))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 32)
 
                 Color.clear.frame(height: 10)
 
-                Text(viewModel.resultText)
+                Text(viewModel.screenData?.resultText ?? "")
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(.mainColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -76,7 +76,7 @@ struct EndView: View {
 
                 Color.clear.frame(height: 8)
 
-                Text(viewModel.lastText)
+                Text(viewModel.screenData?.lastText ?? "")
                     .font(.system(size: 14, weight: .light))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 32)
@@ -86,17 +86,17 @@ struct EndView: View {
                 Button {
                     onReset()
                 } label: {
-                    Text(viewModel.buttonTitle)
+                    Text(viewModel.screenData?.buttonTitle ?? "")
                         .font(.system(size: 18))
                         .frame(maxWidth: .infinity)
                         .frame(height: 60)
                         .foregroundColor(.mainColorInvert)
                         .background(Color.mainColor)
                         .cornerRadius(30)
-                        .opacity(viewModel.isButtonEnabled ? 1 : 0.4)
+                        .opacity((viewModel.screenData?.isButtonEnabled ?? true) ? 1 : 0.4)
                 }
                 .buttonStyle(PressableButtonStyle())
-                .disabled(!viewModel.isButtonEnabled)
+                .disabled(!(viewModel.screenData?.isButtonEnabled ?? true))
                 .padding(.horizontal, 30)
 
                 Color.clear.frame(height: 80)

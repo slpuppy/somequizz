@@ -1,7 +1,9 @@
 /* Main Screen */
-"main.title"        = "The Strange quizz";
-"main.subtitle"     = "a quizz about stuff";
-"main.start_button" = "Start the quizz";
+"main.title"              = "The Strange quizz";
+"main.subtitle"           = "a quizz about stuff";
+"main.start_button"       = "Start the quizz";
+"main.locked_subtitle"    = "you're done for today, stranger";
+"main.come_back_tomorrow" = "come back tomorrow";
 
 /* End Screen — shared */
 "end.first_line"    = "You tried so hard and got so far";

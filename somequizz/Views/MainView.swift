@@ -37,12 +37,12 @@ struct MainView: View {
                         }
                     }
 
-                Text(viewModel.title)
+                Text(viewModel.screenData?.title ?? "")
                     .font(.system(size: 28, weight: .bold))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 20)
 
-                Text(isQuizAvailable ? viewModel.subtitle : viewModel.lockedSubtitle)
+                Text(isQuizAvailable ? (viewModel.screenData?.subtitle ?? "") : (viewModel.screenData?.lockedSubtitle ?? ""))
                     .font(.system(size: 20, weight: .light))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 20)
@@ -58,9 +58,9 @@ struct MainView: View {
                             ProgressView()
                                 .tint(.mainColorInvert)
                         } else if !isQuizAvailable {
-                            Text(localizeString("main.come_back_tomorrow"))
+                            Text(viewModel.screenData?.lockedButton ?? "")
                         } else {
-                            Text(viewModel.startButton)
+                            Text(viewModel.screenData?.startButton ?? "")
                         }
                     }
                     .font(.system(size: 18))

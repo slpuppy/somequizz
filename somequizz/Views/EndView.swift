@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EndView: View {
 
-    @ObservedObject var viewModel: QuizViewModel
+    @ObservedObject var viewModel: EndViewModel
     let onReset: () -> Void
 
     @State private var rotationAngle: Double = 0
@@ -23,10 +23,10 @@ struct EndView: View {
 
                 // Header lines
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(result.firstLine)
+                    Text(viewModel.firstLine)
                         .font(.system(size: 21, weight: .bold))
                         .foregroundColor(.mainColor)
-                    Text(result.secondLine)
+                    Text(viewModel.secondLine)
                         .font(.system(size: 15))
                         .foregroundColor(.mainColor)
                 }
@@ -53,7 +53,7 @@ struct EndView: View {
                 Color.clear.frame(height: 100)
 
                 // Score
-                Text("Scored \(viewModel.rightCount)/\(viewModel.totalQuestions) stranger...")
+                Text(viewModel.scoreText)
                     .font(.system(size: 30, weight: .semibold))
                     .foregroundColor(.mainColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -61,14 +61,14 @@ struct EndView: View {
 
                 Color.clear.frame(height: 10)
 
-                Text(result.scoreSub)
+                Text(viewModel.scoreSub)
                     .font(.system(size: 13, weight: .light))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 32)
 
                 Color.clear.frame(height: 10)
 
-                Text(result.resultText)
+                Text(viewModel.resultText)
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(.mainColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -76,7 +76,7 @@ struct EndView: View {
 
                 Color.clear.frame(height: 8)
 
-                Text(result.lastText)
+                Text(viewModel.lastText)
                     .font(.system(size: 14, weight: .light))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 32)
@@ -86,7 +86,7 @@ struct EndView: View {
                 Button {
                     onReset()
                 } label: {
-                    Text(result.buttonTitle)
+                    Text(viewModel.buttonTitle)
                         .font(.system(size: 18))
                         .frame(maxWidth: .infinity)
                         .frame(height: 60)
@@ -99,58 +99,6 @@ struct EndView: View {
 
                 Color.clear.frame(height: 80)
             }
-        }
-    }
-
-    // MARK: - Result Info
-
-    private struct ResultInfo {
-        let firstLine: String
-        let secondLine: String
-        let scoreSub: String
-        let resultText: String
-        let lastText: String
-        let buttonTitle: String
-    }
-
-    private var result: ResultInfo {
-        switch viewModel.rightCount {
-        case 9:
-            return ResultInfo(
-                firstLine: "You tried so hard and got so far",
-                secondLine: "and in the end...",
-                scoreSub: "and YOU LOST!, but fortunatelly...",
-                resultText: "you found a secret:",
-                lastText: "It was an inside job and this quizz is strange so...",
-                buttonTitle: "Try again and win, you're close"
-            )
-        case 10:
-            return ResultInfo(
-                firstLine: "You tried so hard and got so far",
-                secondLine: "and in the end...",
-                scoreSub: "and because this quizz is strange, fortunatelly...",
-                resultText: "You won!",
-                lastText: "but you made one mistake...",
-                buttonTitle: "Try to make none"
-            )
-        case 11:
-            return ResultInfo(
-                firstLine: "You tried so hard and got so far",
-                secondLine: "and in the end you completely nailed it!",
-                scoreSub: "and despite being a strange quizz you were",
-                resultText: "Flawless",
-                lastText: "this quizz isn't strange for you anymore",
-                buttonTitle: "Replay"
-            )
-        default: // 0–8
-            return ResultInfo(
-                firstLine: "You tried so hard and got so far",
-                secondLine: "but in the end...",
-                scoreSub: "and because this quizz is strange, unfortunatelly...",
-                resultText: "You lost...",
-                lastText: "but you can still...",
-                buttonTitle: "Try again"
-            )
         }
     }
 }

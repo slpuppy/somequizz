@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
 
+    @ObservedObject var viewModel: MainViewModel
+    let isQuizReady: Bool
     let onStart: () -> Void
 
     @State private var pendulumAngle: Double = -17.2
@@ -34,13 +36,12 @@ struct MainView: View {
                         }
                     }
 
-
-                Text("The Strange quizz")
+                Text(viewModel.title)
                     .font(.system(size: 28, weight: .bold))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 20)
 
-                Text("a quizz about stuff")
+                Text(viewModel.subtitle)
                     .font(.system(size: 20, weight: .light))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 20)
@@ -51,14 +52,22 @@ struct MainView: View {
                 Button {
                     onStart()
                 } label: {
-                    Text("Start the quizz")
-                        .font(.system(size: 18))
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 60)
-                        .foregroundColor(.mainColorInvert)
-                        .background(Color.mainColor)
-                        .cornerRadius(30)
+                    Group {
+                        if isQuizReady {
+                            Text(viewModel.startButton)
+                        } else {
+                            ProgressView()
+                                .tint(.mainColorInvert)
+                        }
+                    }
+                    .font(.system(size: 18))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 60)
+                    .foregroundColor(.mainColorInvert)
+                    .background(Color.mainColor)
+                    .cornerRadius(30)
                 }
+                .disabled(!isQuizReady)
                 .buttonStyle(PressableButtonStyle())
                 .padding(.horizontal, 30)
 

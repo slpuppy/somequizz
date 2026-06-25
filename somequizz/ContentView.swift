@@ -14,28 +14,61 @@ struct ContentView: View {
     @StateObject private var quizViewModel = QuizViewModel()
     @State private var endViewModel: EndViewModel?
 
+    private var isQuizAvailable: Bool {
+        let used = LocalStorageManager.int(for: .attemptsUsed)
+        let daily = LocalStorageManager.int(for: .dailyAttempts)
+        return daily == 0 || used < daily
+    }
+
     var body: some View {
         switch screen {
         case .main:
-            MainView(viewModel: mainViewModel, isQuizReady: !quizViewModel.isLoading) {
+            MainView(
+                viewModel: mainViewModel,
+                isQuizReady: !quizViewModel.isLoading,
+                isQuizAvailable: isQuizAvailable
+            ) {
                 screen = .quiz
             }
         case .quiz:
             QuizzView(viewModel: quizViewModel) {
+                let isGameOver = recordAttempt(score: quizViewModel.rightCount)
                 endViewModel = EndViewModel(
                     rightCount: quizViewModel.rightCount,
-                    totalQuestions: quizViewModel.totalQuestions
+                    totalQuestions: quizViewModel.totalQuestions,
+                    isGameOver: isGameOver
                 )
                 screen = .end
             }
         case .end:
             if let endVM = endViewModel {
                 EndView(viewModel: endVM) {
-                    quizViewModel.reset()
-                    endViewModel = nil
-                    screen = .main
+                    if endVM.isGameOver {
+                        endViewModel = nil
+                        screen = .main
+                    } else {
+                        quizViewModel.reset()
+                        endViewModel = nil
+                        screen = .quiz
+                    }
                 }
             }
         }
+    }
+
+    // MARK: - Private
+
+    @discardableResult
+    private func recordAttempt(score: Int) -> Bool {
+        let currentBest = LocalStorageManager.int(for: .bestScore)
+        if score > currentBest {
+            LocalStorageManager.set(score, for: .bestScore)
+        }
+        let used = LocalStorageManager.int(for: .attemptsUsed) + 1
+        LocalStorageManager.set(used, for: .attemptsUsed)
+        let daily = LocalStorageManager.int(for: .dailyAttempts)
+        let isGameOver = daily > 0 && used >= daily
+        print("[ContentView] attempt \(used)/\(daily), isGameOver=\(isGameOver)")
+        return isGameOver
     }
 }

@@ -29,7 +29,8 @@ class MainViewModel: ObservableObject {
         isLoading = false
     }
 
-    var title: String       { content?.title            ?? localizeString("main.title") }
-    var subtitle: String    { content?.subtitle         ?? localizeString("main.subtitle") }
-    var startButton: String { content?.buttons?.first?.title ?? localizeString("main.start_button") }
+    var title: String          { content?.title                ?? localizeString("main.title") }
+    var subtitle: String       { content?.subtitle            ?? localizeString("main.subtitle") }
+    var lockedSubtitle: String { content?.label1              ?? localizeString("main.locked_subtitle") }
+    var startButton: String    { content?.buttons?.first?.title ?? localizeString("main.start_button") }
 }

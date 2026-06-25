@@ -93,8 +93,10 @@ struct EndView: View {
                         .foregroundColor(.mainColorInvert)
                         .background(Color.mainColor)
                         .cornerRadius(30)
+                        .opacity(viewModel.isButtonEnabled ? 1 : 0.4)
                 }
                 .buttonStyle(PressableButtonStyle())
+                .disabled(!viewModel.isButtonEnabled)
                 .padding(.horizontal, 30)
 
                 Color.clear.frame(height: 80)

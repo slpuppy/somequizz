@@ -42,8 +42,6 @@ class QuizViewModel: ObservableObject {
         currentQuestionIndex = 0
         rightCount = 0
         wrongCount = 0
-        isLoading = true
-        Task { await loadQuestions() }
     }
 
     // MARK: - Private

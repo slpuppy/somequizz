@@ -45,13 +45,14 @@ class EndViewModel: ObservableObject {
 
     private func mapToScreenData(score: ScreenContent?, state: ScreenContent?) -> EndScreenData {
         let key = resultKey
+        let content = state ?? score
         return EndScreenData(
-            firstLine: score?.label1 ?? localizeString("end.first_line"),
-            secondLine: state?.label2 ?? score?.label2 ?? localizeString("end.\(key).second_line"),
-            scoreSub: score?.label3 ?? localizeString("end.\(key).score_sub"),
-            resultText: state?.title ?? score?.title ?? localizeString("end.\(key).result"),
-            lastText: state?.subtitle ?? score?.subtitle ?? localizeString("end.\(key).last_text"),
-            buttonTitle: state?.buttons?.first?.title ?? localizeString("end.\(key).button"),
+            firstLine: content?.label1 ?? localizeString("end.first_line"),
+            secondLine: content?.label2 ?? localizeString("end.\(key).second_line"),
+            scoreSub: content?.label3 ?? localizeString("end.\(key).score_sub"),
+            resultText: content?.title ?? localizeString("end.\(key).result"),
+            lastText: content?.subtitle ?? localizeString("end.\(key).last_text"),
+            buttonTitle: content?.buttons?.first?.title ?? localizeString("end.\(key).button"),
             scoreText: String(format: localizeString("end.score_format"), rightCount, totalQuestions),
             isButtonEnabled: !isGameOver
         )

@@ -40,6 +40,7 @@
 		75C715A92FEC6FB4006A9E17 /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715A82FEC6FB4006A9E17 /* QuizService.swift */; };
 		75C715AB2FECB9A7006A9E17 /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715AA2FECB9A7006A9E17 /* AppSettingsService.swift */; };
 		75C715AE2FECBA77006A9E17 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C715AC2FECBA77006A9E17 /* LocalStorageManager.swift */; };
+		75C715B12FED94E4006A9E17 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 75C715B02FED94E4006A9E17 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		75C715A82FEC6FB4006A9E17 /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
 		75C715AA2FECB9A7006A9E17 /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
 		75C715AC2FECBA77006A9E17 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
+		75C715B22FED9553006A9E17 /* Strangequizz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Strangequizz.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			files = (
 				75C7158E2FEC5571006A9E17 /* FirebaseAnalytics in Frameworks */,
 				75C715922FEC5571006A9E17 /* FirebaseCore in Frameworks */,
+				75C715B12FED94E4006A9E17 /* FirebaseMessaging in Frameworks */,
 				75C715942FEC5571006A9E17 /* FirebaseDatabase in Frameworks */,
 				75C715982FEC5571006A9E17 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				75C715962FEC5571006A9E17 /* FirebaseFirestore in Frameworks */,
@@ -94,7 +97,9 @@
 		758F010F26B1F97300349B32 = {
 			isa = PBXGroup;
 			children = (
+				75C715B22FED9553006A9E17 /* Strangequizz.entitlements */,
 				758F011A26B1F97300349B32 /* somequizz */,
+				75C715AF2FED94E4006A9E17 /* Frameworks */,
 				758F011926B1F97300349B32 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -228,6 +233,13 @@
 				75C715AC2FECBA77006A9E17 /* LocalStorageManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		75C715AF2FED94E4006A9E17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Strangequizz.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0;
 				INFOPLIST_FILE = somequizz/Info.plist;
@@ -492,6 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Strangequizz.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0;
 				INFOPLIST_FILE = somequizz/Info.plist;
@@ -571,6 +585,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75C7158C2FEC5571006A9E17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreCombine-Community";
+		};
+		75C715B02FED94E4006A9E17 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75C7158C2FEC5571006A9E17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

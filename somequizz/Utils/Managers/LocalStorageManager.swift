@@ -13,6 +13,7 @@ enum LocalStorageKey: String {
     case attemptsUsed
     case bestScore
     case lastPlayedDate
+    case resetHour
 }
 
 struct LocalStorageManager {

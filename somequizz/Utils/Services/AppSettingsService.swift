@@ -29,6 +29,7 @@ class FirestoreAppSettingsService: AppSettingsServiceProtocol {
 
             cacheDynamicQuestions(from: data)
             cacheDailyAttempts(from: data)
+            cacheResetHour(from: data)
 
         } catch {
             print("[AppSettingsService] Fetch failed, using defaults: \(error)")
@@ -58,25 +59,42 @@ class FirestoreAppSettingsService: AppSettingsServiceProtocol {
         LocalStorageManager.set(attempts, for: .dailyAttempts)
     }
 
-    private func resetDailyStateIfNeeded() {
-        let today = todayUTCKey()
-        let lastPlayed = LocalStorageManager.string(for: .lastPlayedDate)
-        guard lastPlayed != today else { return }
-        print("[AppSettingsService] New day detected, resetting daily state")
-        LocalStorageManager.set(0, for: .attemptsUsed)
-        LocalStorageManager.set(-1, for: .bestScore)
-        LocalStorageManager.set(today, for: .lastPlayedDate)
+    private func cacheResetHour(from data: [String: Any]) {
+        guard let hour = data["resetHour"] as? Int, (0...23).contains(hour) else {
+            print("[AppSettingsService] Missing resetHour, defaulting to 0")
+            LocalStorageManager.set(0, for: .resetHour)
+            return
+        }
+        print("[AppSettingsService] resetHour=\(hour)")
+        LocalStorageManager.set(hour, for: .resetHour)
     }
 
-    private func todayUTCKey() -> String {
+    private func resetDailyStateIfNeeded() {
+        let sessionKey = currentSessionKey()
+        let lastPlayed = LocalStorageManager.string(for: .lastPlayedDate)
+        guard lastPlayed != sessionKey else { return }
+        print("[AppSettingsService] New session detected, resetting daily state")
+        LocalStorageManager.set(0, for: .attemptsUsed)
+        LocalStorageManager.set(-1, for: .bestScore)
+        LocalStorageManager.set(sessionKey, for: .lastPlayedDate)
+    }
+
+    private func currentSessionKey() -> String {
+        let resetHour = LocalStorageManager.int(for: .resetHour)
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        let now = Date()
+        let currentHour = calendar.component(.hour, from: now)
+        let sessionDate = currentHour >= resetHour ? now : calendar.date(byAdding: .day, value: -1, to: now)!
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = TimeZone(identifier: "UTC")
-        return formatter.string(from: Date())
+        return formatter.string(from: sessionDate)
     }
 
     private func setDefaults() {
         LocalStorageManager.set(false, for: .useDynamicQuestions)
         LocalStorageManager.set(3, for: .dailyAttempts)
+        LocalStorageManager.set(0, for: .resetHour)
     }
 }

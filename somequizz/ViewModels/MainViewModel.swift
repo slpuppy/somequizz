@@ -9,7 +9,7 @@ import Foundation
 
 class MainViewModel: ObservableObject {
 
-    @Published var content: ScreenContent?
+    @Published var screenData: MainScreenData?
     @Published var isLoading: Bool = true
 
     private let service: MainContentServiceProtocol
@@ -22,14 +22,24 @@ class MainViewModel: ObservableObject {
     @MainActor
     private func loadContent() async {
         do {
-            content = try await service.fetchContent()
+            let content = try await service.fetchContent()
+            screenData = mapToScreenData(from: content)
         } catch {
             print("[MainViewModel] Firestore fetch failed: \(error)")
+            screenData = mapToScreenData(from: nil)
         }
         isLoading = false
     }
 
-    var title: String       { content?.title            ?? localizeString("main.title") }
-    var subtitle: String    { content?.subtitle         ?? localizeString("main.subtitle") }
-    var startButton: String { content?.buttons?.first?.title ?? localizeString("main.start_button") }
+    // MARK: - Private
+
+    private func mapToScreenData(from content: ScreenContent?) -> MainScreenData {
+        MainScreenData(
+            title: content?.title ?? localizeString("main.title"),
+            subtitle: content?.subtitle ?? localizeString("main.subtitle"),
+            lockedSubtitle: content?.label1 ?? localizeString("main.locked_subtitle"),
+            startButton: content?.buttons?.first?.title ?? localizeString("main.start_button"),
+            lockedButton: content?.buttons?.last?.title ?? localizeString("main.come_back_tomorrow")
+        )
+    }
 }

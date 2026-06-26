@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75335F342FEDD45100242B2A /* EndScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75335F322FEDD45100242B2A /* EndScreenData.swift */; };
+		75335F352FEDD45100242B2A /* MainScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75335F332FEDD45100242B2A /* MainScreenData.swift */; };
 		7560EA8026B3858A00F3C0CE /* QuestionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560EA7F26B3858A00F3C0CE /* QuestionsRepository.swift */; };
 		7560EA8226B386D800F3C0CE /* QuizzViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560EA8126B386D800F3C0CE /* QuizzViewModel.swift */; };
 		7560EA8826B775B300F3C0CE /* EndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560EA8726B775B300F3C0CE /* EndView.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75335F322FEDD45100242B2A /* EndScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenData.swift; sourceTree = "<group>"; };
+		75335F332FEDD45100242B2A /* MainScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenData.swift; sourceTree = "<group>"; };
 		7560EA7F26B3858A00F3C0CE /* QuestionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsRepository.swift; sourceTree = "<group>"; };
 		7560EA8126B386D800F3C0CE /* QuizzViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzViewModel.swift; sourceTree = "<group>"; };
 		7560EA8726B775B300F3C0CE /* EndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 		758F013126B1FB8A00349B32 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				75335F322FEDD45100242B2A /* EndScreenData.swift */,
+				75335F332FEDD45100242B2A /* MainScreenData.swift */,
 				75C715A22FEC5785006A9E17 /* ScreenContent.swift */,
 				758F013A26B206D200349B32 /* Question.swift */,
 				7560EA7F26B3858A00F3C0CE /* QuestionsRepository.swift */,
@@ -331,6 +337,8 @@
 				758F013526B201F600349B32 /* QuizzView.swift in Sources */,
 				75C7157F2FEB907B006A9E17 /* AnswerState.swift in Sources */,
 				758F013B26B206D200349B32 /* Question.swift in Sources */,
+				75335F342FEDD45100242B2A /* EndScreenData.swift in Sources */,
+				75335F352FEDD45100242B2A /* MainScreenData.swift in Sources */,
 				75C715752FEB8C54006A9E17 /* AppScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +486,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Strangequizz.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "1.0 ";
+				CURRENT_PROJECT_VERSION = 1.0;
 				INFOPLIST_FILE = somequizz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -499,7 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Strangequizz.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "1.0 ";
+				CURRENT_PROJECT_VERSION = 1.0;
 				INFOPLIST_FILE = somequizz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (

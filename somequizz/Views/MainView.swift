@@ -11,6 +11,7 @@ struct MainView: View {
 
     @ObservedObject var viewModel: MainViewModel
     let isQuizReady: Bool
+    let isQuizAvailable: Bool
     let onStart: () -> Void
 
     @State private var pendulumAngle: Double = -17.2
@@ -36,12 +37,12 @@ struct MainView: View {
                         }
                     }
 
-                Text(viewModel.title)
+                Text(viewModel.screenData?.title ?? "")
                     .font(.system(size: 28, weight: .bold))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 20)
 
-                Text(viewModel.subtitle)
+                Text(isQuizAvailable ? (viewModel.screenData?.subtitle ?? "") : (viewModel.screenData?.lockedSubtitle ?? ""))
                     .font(.system(size: 20, weight: .light))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 20)
@@ -53,11 +54,13 @@ struct MainView: View {
                     onStart()
                 } label: {
                     Group {
-                        if isQuizReady {
-                            Text(viewModel.startButton)
-                        } else {
+                        if !isQuizReady {
                             ProgressView()
                                 .tint(.mainColorInvert)
+                        } else if !isQuizAvailable {
+                            Text(viewModel.screenData?.lockedButton ?? "")
+                        } else {
+                            Text(viewModel.screenData?.startButton ?? "")
                         }
                     }
                     .font(.system(size: 18))
@@ -65,9 +68,10 @@ struct MainView: View {
                     .frame(height: 60)
                     .foregroundColor(.mainColorInvert)
                     .background(Color.mainColor)
+                    .opacity(!isQuizAvailable ? 0.4 : 1)
                     .cornerRadius(30)
                 }
-                .disabled(!isQuizReady)
+                .disabled(!isQuizReady || !isQuizAvailable)
                 .buttonStyle(PressableButtonStyle())
                 .padding(.horizontal, 30)
 

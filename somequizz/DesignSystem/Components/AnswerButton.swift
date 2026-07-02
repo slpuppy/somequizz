@@ -30,8 +30,8 @@ struct AnswerButton: View {
                     .font(state == .correct
                           ? .system(size: 16, weight: .bold)
                           : .system(size: 16))
-                    .foregroundColor(.mainColor)
-                    .padding(.leading, 20)
+                    .foregroundColor(state == .revealed ? .mainColorInvert : .mainColor)
+                    .padding(.horizontal, 20)
                 Spacer()
             }
             .frame(maxWidth: .infinity)
